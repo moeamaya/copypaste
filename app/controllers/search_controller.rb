@@ -6,7 +6,6 @@ class SearchController < ApplicationController
     
     page = Nokogiri::HTML(open(@search))   
     #page = Nokogiri::HTML(open("http://en.wikipedia.org/"))   
-    puts page.class   # => Nokogiri::HTML::Document
    
     @web_result = page.css('title').text
     #@web_result = page.css('.size-large')[1]['src']
