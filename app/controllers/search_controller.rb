@@ -1,6 +1,3 @@
-require 'rubygems'
-require 'nokogiri'
-
 class SearchController < ApplicationController
   
   # GET /links
