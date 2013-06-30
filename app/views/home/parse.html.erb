@@ -1,0 +1,94 @@
+<style>
+  .image-wrapper{
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+  }
+  .delete{
+    font-size: 10px;
+    color: red;
+    margin-left: 0;
+  }
+</style>
+
+
+
+<%= form_for :link, url: link_path do |f| %>
+  Title <%= f.text_field :title %><br />
+  Link <%= f.text_field :address %><br />
+  User <%= f.text_field :name %><br />
+  <%= f.submit %>
+<% end %>
+
+<table>
+<% @links.each do |link| %>
+  <br>
+    <div class="image-wrapper">
+      <img src="<%= link.imagelink %>" style="position: relative; left: -80px; max-height: 200%; max-width: 200%"/>
+    </div>  
+      
+    <a href="<%= link.address %>" target="_blank"><%= link.title %></a>
+    <br>
+    posted by <%= link.name %>
+    <%= button_to 'Destroy', link, :confirm => 'Are you sure?', :method => :delete, :class => 'delete' %>
+<% end %>
+
+<br><br>
+<div id="data">
+  Placeholder
+</div>
+
+<!--
+<% @links.each do |link| %>
+  <tr>
+    <td><%= link.name %></td>
+    <td><%= link.title %></td>
+    <td><%= link.address %></td>
+    <td><%= link_to 'Show', link %></td>
+    <td><%= link_to 'Edit', edit_link_path(link) %></td>
+    <td><%= link_to 'Destroy', link, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+<%= link_to 'New Link', new_link_path %>
+-->
+
+<script>
+  $(document).ready(function(){
+ 
+    // Or you can paste your URL directly to your input box.
+    $('#link_address').bind("paste", parse_link);
+ 
+    // Get website information.
+    function parse_link(){
+        setTimeout(function() {
+
+            $.ajax({
+                type: "GET",
+                url: '/newsapp/search?'+'link='+$('#link_address').val(),
+                
+                processData: false,
+                contentType: "json",
+                timeout: 30000,
+                success: function(response){
+                  var makeImg = "<img src='" + response + "'>"
+                  $('#data').html(makeImg);
+                  
+                  
+                }})
+        }, 500 )
+      };
+  
+  
+  })//document ready
+ 
+</script>
+
+
+
+
+
