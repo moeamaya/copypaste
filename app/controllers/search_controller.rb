@@ -1,5 +1,10 @@
+require 'nokogiri'
+require 'open-uri'
+
 class SearchController < ApplicationController
   
+
+
   # GET /links
   def index
     @search = params[:link]
