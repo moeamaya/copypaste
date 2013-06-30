@@ -13,6 +13,7 @@ class SearchController < ApplicationController
    
     respond_to do |format|
       format.html  { render :text => @web_result }
+      format.js { render :text => @web_result }
     end
   end
   
