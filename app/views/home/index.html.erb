@@ -90,7 +90,7 @@ $('#link_address').focusout(function() {
 	
 	$.ajax({
 		url: "/search",
-		dataType: 'json',
+		dataType: 'html',
 		cache: 'false',
 		type: "GET",
 		data: { link: address },

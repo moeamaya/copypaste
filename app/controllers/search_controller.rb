@@ -16,7 +16,7 @@ class SearchController < ApplicationController
     #@web_result = page.css('.size-large')[1]['src']
    
     respond_to do |format|
-      format.js { render :json => @web_result}
+      format.html { render :text => @web_result}
     end
   end
   
