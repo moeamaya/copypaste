@@ -58,33 +58,7 @@
 -->
 
 <script>
-  $(document).ready(function(){
- 
-    // Or you can paste your URL directly to your input box.
-    $('#link_address').bind("paste", parse_link);
- 
-    // Get website information.
-    function parse_link(){
-        setTimeout(function() {
 
-            $.ajax({
-                type: "GET",
-                url: '/newsapp/search?'+'link='+$('#link_address').val(),
-                
-                processData: false,
-                contentType: "json",
-                timeout: 30000,
-                success: function(response){
-                  var makeImg = "<img src='" + response + "'>"
-                  $('#data').html(makeImg);
-                  
-                  
-                }})
-        }, 500 )
-      };
-  
-  
-  })//document ready
  
 </script>
 

@@ -1,107 +1,86 @@
-<style>
-body{
-	font-family: sans-serif;
-	font-size: 14px;
-}
-a{
-	color: #444;
-	text-decoration: none;
-}
-.link-wrapper{
-	position: relative;
-	display: inline-block;
-	height: 260px;
-	padding: 12px;
-	margin-top: 10px;
-	margin-right: 4px;
-	width: auto;
-	background: #ddd;
-	overflow: auto;
-	border-radius: 0px;
-	box-shadow: 1px 2px 2px #ccc;
-}
-.image-wrapper{
-	height: 200px;
-	width: auto;
-	overflow: auto;
-}
-.link-attr{
-	color: #888;
-	font-size: 10px;
-}
-.delete{
-	position: absolute;
-	bottom: 10px;
-	font-size: 10px;
-	color: #999;
-	margin-left: 0;
-}
-.delete a:hover{
-	text-decoration: underline;
-}
-.delete a:visited{
 
-	color: #999;
-}
-</style>
+<div class="container">
 
-<h1>Copypaste</h1>
-
-
-<%= form_for :link, url:links_path do |f| %>
-	Link <%= f.text_field :address %><br />
-	User <%= f.text_field :name %><br />
-	Title <%= f.text_field :title %><br />
-	<%= f.submit %>
-<% end %>
-
-<div id="parse">
-	blank
-</div>
-
-<br>
-<% @links.each do |link| %>
-<div class="link-wrapper">
-
-	<!-- image link -->
-	<div class="image-wrapper">
-		<a href=" <%= link.address  %>">
-		</a>
-	</div>  
-	<!-- text link -->  
-	<a href="<%= link.address %>" target="_blank"><%= link.title %></a>
-
-	<!-- link attributes -->  
-	<div class="link-attr">
-		<b><%= link.name %></b>
-		<%= link.created_at.strftime("%b %d %Y") %>
+	<div class="pasteee">
+		<%= form_for :link, url:links_path do |f| %>
+		<%= f.text_field :address, :placeholder => 'PASTEEE a link...', :autocomplete => 'off' %>
+		<br />
+	</div>
+	<div id="spinner" style="display:none">
+		<%= image_tag ("spinner.gif") %>
 	</div>
 
-	<div class="delete">
-		<%= link_to 'Delete', link, :confirm => 'Are you sure?', :method => :delete %>
+	<div id="title_hide" style="display:none">
+		<%= f.label :name, 'User' %>
+		<%= f.text_field :name %><br />
+
+		<%= f.label :title %>
+		<%= f.text_field :title %><br />
+
+		<%= f.submit %>
+		<% end %>
 	</div>
+
+
+	<br>
+	<% @links.each do |link| %>
+	<div class="link-wrapper">
+
+		<!-- image link -->
+		<div class="image-wrapper">
+			<a href=" <%= link.address  %>">
+			</a>
+		</div>  
+		<!-- text link -->  
+		<a href="<%= link.address %>" target="_blank"><%= link.title %></a>
+
+		<!-- link attributes -->  
+		<div class="link-attr">
+			<b><%= link.name %></b>
+			<%= link.created_at.strftime("%b %d %Y") %>
+		</div>
+
+		<div class="delete">
+			<%= link_to 'Delete', link, :confirm => 'Are you sure?', :method => :delete %>
+		</div>
+	</div>
+	<% end %>
+
+
 </div>
-<% end %>
 
 <script>
+$(document).ready(function(){
 
-$('#link_address').focusout(function() {
-	var address = $(this).val();
-	
-	$.ajax({
-		url: "/search",
-		dataType: 'html',
-		cache: 'false',
-		type: "GET",
-		data: { link: address },
+    // Or you can paste your URL directly to your input box.
+    $('#link_address').bind("paste", parse_link);
 
-		success: function(data){
-			$('#link_title').val(data);
-		}
-	})
+    // Get website information.
+    function parse_link(){
+    	$('#spinner').slideDown();
+    	setTimeout(function() {
+
+    		$.ajax({
+    			type: "GET",
+    			url: '/search?'+'link='+$('#link_address').val(),
+
+    			processData: false,
+    			dataType: 'html',
+    			type: 'GET',
+    			timeout: 30000,
+    			success: function(response){
+    				$('#spinner').hide();
+    				$('#title_hide').slideDown();
+    				$('#link_title').val(response);
 
 
-})
+    			}})
+    	}, 500 )
+    };
+
+
+  })//document ready
+
 
 
 </script>

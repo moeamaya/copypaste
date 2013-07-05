@@ -1,0 +1,81 @@
+@darkBrown: #494644;
+@gray: #AFB1B3;
+@lightGreen: #88B7B1;
+
+body{
+	font-family: sans-serif;
+	font-size: 14px;
+}
+.container {
+	width: 980px;
+	margin: 0 auto;
+}
+.pasteee {
+	background: @darkBrown;
+	width: 980px;
+	height: 84px;
+	display: table-cell;
+	vertical-align: middle;
+	input[type=text] {
+		margin: 0 50px;
+		width: 880px;
+		border: none;
+		border-bottom: 1px solid @gray;
+		background: transparent;
+		color: @lightGreen;
+		&:focus{
+			outline: none;
+			border: none;
+			border-bottom: 1px solid @gray;
+		};
+	}
+}
+
+input[type=text]{
+	width: 600px;
+	margin-top: 10px;
+}
+input[type=submit]{
+	margin-top: 10px;
+}
+
+a{
+	color: #444;
+	text-decoration: none;
+}
+.link-wrapper{
+	position: relative;
+	display: inline-block;
+	height: 260px;
+	padding: 12px;
+	margin-top: 10px;
+	margin-right: 4px;
+	width: auto;
+	background: #ddd;
+	overflow: auto;
+	border-radius: 0px;
+	box-shadow: 1px 2px 2px #ccc;
+}
+.image-wrapper{
+	height: 200px;
+	width: auto;
+	overflow: auto;
+}
+.link-attr{
+	color: #888;
+	font-size: 10px;
+}
+.delete{
+	position: absolute;
+	bottom: 10px;
+	font-size: 10px;
+	color: #999;
+	margin-left: 0;
+}
+.delete a:hover{
+	text-decoration: underline;
+}
+.delete a:visited{
+
+	color: #999;
+}
