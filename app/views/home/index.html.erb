@@ -26,22 +26,23 @@
 	<% @links.each do |link| %>
 	<div class="link-wrapper">
 
-		<!-- image link -->
-		<div class="image-wrapper">
-			<a href=" <%= link.address  %>">
+		<!-- image link --> 
+		<div class="link-space">
+			<!-- text link -->  
+			<a href="<%= link.address %>" target="_blank">
+				<%= truncate(link.title, :length => 80) %>
 			</a>
-		</div>  
-		<!-- text link -->  
-		<a href="<%= link.address %>" target="_blank"><%= link.title %></a>
 
-		<!-- link attributes -->  
-		<div class="link-attr">
-			<b><%= link.name %></b>
-			<%= link.created_at.strftime("%b %d %Y") %>
-		</div>
+			<!-- link attributes -->  
+			<div class="link-attr">
+				<b><%= link.name %></b>
+				<%= link.created_at.strftime("%b %d %Y") %>
+			</div>
 
-		<div class="delete">
-			<%= link_to 'Delete', link, :confirm => 'Are you sure?', :method => :delete %>
+			<div class="delete">
+				<%= link_to 'Delete', link, :confirm => 'Are you sure?', :method => :delete %>
+			</div>
+
 		</div>
 	</div>
 	<% end %>
@@ -49,41 +50,7 @@
 
 </div>
 
-<script>
-$(document).ready(function(){
 
-    // Or you can paste your URL directly to your input box.
-    $('#link_address').bind("paste", parse_link);
-
-    // Get website information.
-    function parse_link(){
-    	$('#spinner').slideDown();
-    	setTimeout(function() {
-
-    		$.ajax({
-    			type: "GET",
-    			url: '/search?'+'link='+$('#link_address').val(),
-
-    			processData: false,
-    			dataType: 'html',
-    			type: 'GET',
-    			timeout: 30000,
-    			success: function(response){
-    				$('#spinner').hide();
-    				$('#title_hide').slideDown();
-    				$('#link_title').val(response);
-
-
-    			}})
-    	}, 500 )
-    };
-
-
-  })//document ready
-
-
-
-</script>
 
 
 

@@ -60,8 +60,64 @@
 <script>
 
  
+
+
+$('#link_address').focusout(function() {
+  var address = $(this).val();
+  
+  $.ajax({
+    url: "/search",
+    dataType: 'html',
+    cache: 'false',
+    type: "GET",
+    data: { link: address },
+
+    success: function(data){
+      $('#link_title').val(data);
+    }
+  })
+
+
+})
+ 
 </script>
 
+
+<script>
+$(document).ready(function(){
+
+    // Or you can paste your URL directly to your input box.
+    $('#link_address').bind("paste", parse_link);
+
+    // Get website information.
+    function parse_link(){
+      $('#spinner').slideDown();
+      setTimeout(function() {
+
+        $.ajax({
+          type: "GET",
+          url: '/search?'+'link='+$('#link_address').val(),
+
+          processData: false,
+          dataType: 'html',
+          type: 'GET',
+          timeout: 30000,
+          success: function(response){
+            $('#spinner').hide();
+            $('#title_hide').slideDown();
+            $('#link_title').val(response);
+
+
+          }})
+      }, 500 )
+    };
+
+
+  })//document ready
+
+
+
+</script>
 
 
 

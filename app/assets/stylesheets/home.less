@@ -40,32 +40,31 @@ input[type=submit]{
 }
 
 a{
-	color: #444;
+	color: @darkBrown;
 	text-decoration: none;
 }
 .link-wrapper{
 	position: relative;
-	display: inline-block;
-	height: 260px;
-	padding: 12px;
+	width: 100%;
+	height: auto;
+	padding: 10px 0 20px;
 	margin-top: 10px;
 	margin-right: 4px;
-	width: auto;
 	background: #ddd;
 	overflow: auto;
 	border-radius: 0px;
-	box-shadow: 1px 2px 2px #ccc;
 }
-.image-wrapper{
-	height: 200px;
-	width: auto;
-	overflow: auto;
+.link-space {
+	margin: 20px;
+	a {
+		font-size: 26px;
+	}
 }
 .link-attr{
 	color: #888;
-	font-size: 10px;
+	font-size: 12px;
 }
-.delete{
+.delete a{
 	position: absolute;
 	bottom: 10px;
 	font-size: 10px;
