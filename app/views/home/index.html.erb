@@ -30,7 +30,7 @@
 		<div class="link-space">
 			<!-- text link -->  
 			<a href="<%= link.address %>" target="_blank">
-				<%= truncate(link.title, :length => 80) %>
+				<%= truncate(link.title, :length => 120) %>
 			</a>
 
 			<!-- link attributes -->  
@@ -38,6 +38,11 @@
 				<b><%= link.name %></b>
 				<%= link.created_at.strftime("%b %d %Y") %>
 			</div>
+
+			<!-- comments -->  
+
+	
+
 
 			<div class="delete">
 				<%= link_to 'Delete', link, :confirm => 'Are you sure?', :method => :delete %>
