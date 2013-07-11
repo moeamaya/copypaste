@@ -3,10 +3,10 @@ class CreateComments < ActiveRecord::Migration
     create_table :comments do |t|
       t.string :commenter
       t.text :body
-      t.references :link
+      t.references :links
 
       t.timestamps
     end
-    add_index :comments, :link_id
+    add_index :comments, :links_id
   end
 end
