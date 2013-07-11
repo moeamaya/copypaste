@@ -24,6 +24,7 @@
 
 	<br>
 	<% @links.each do |link| %>
+	
 	<div class="link-wrapper">
 
 		<!-- image link --> 
@@ -39,47 +40,53 @@
 				<%= link.created_at.strftime("%b %d %Y") %>
 			</div>
 
-			<!-- comments -->  
-			<% link.comments.each do |comment| %>
-			  <p>
-			    <strong>Commenter:</strong>
-			    <%= comment.commenter %>
-			  </p>
-			 
-			  <p>
-			    <strong>Comment:</strong>
-			    <%= comment.body %>
-			  </p>
-			<% end %>
-
-
-			<h2>Add a comment:</h2>
-			<%= form_for([link, link.comments.build]) do |f| %>
-				<p>
-					<%= f.label :commenter %><br />
-					<%= f.text_field :commenter %>
-				</p>
-				<p>
-					<%= f.label :body %><br />
-					<%= f.text_area :body %>
-				</p>
-				<p>
-					<%= f.submit %>
-				</p>
-			<% end %>
-
-
-
 			<div class="delete">
 				<%= link_to 'Delete', link, :confirm => 'Are you sure?', :method => :delete %>
 			</div>
 
 		</div>
+		
 	</div>
-	<% end %>
+
+	<!-- comments -->  
+	<div class="comments">
+		<div class="comments-inner">
+			<%= link.comments.count %>
+		</div>
+	</div>
+
+	<div class="comments-hide" style="display:none">
+		<% link.comments.each do |comment| %>
+		<p>
+			<strong>Commenter:</strong>
+			<%= comment.commenter %>
+		</p>
+
+		<p>
+			<strong>Comment:</strong>
+			<%= comment.body %>
+		</p>
+		<% end %>
 
 
-</div>
+		<h2>Add a comment:</h2>
+		<%= form_for([link, link.comments.build]) do |f| %>
+		<p>
+			<%= f.label :commenter %><br />
+			<%= f.text_field :commenter %>
+		</p>
+		<p>
+			<%= f.label :body %><br />
+			<%= f.text_area :body %>
+		</p>
+		<p>
+			<%= f.submit %>
+		</p>
+		<% end %>
+	</div>
+
+<% end %>
+
 
 
 

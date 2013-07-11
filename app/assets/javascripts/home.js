@@ -4,6 +4,12 @@ $(document).ready(function(){
     $(this).select();
   })
 
+  $('.comments').click( function() {
+    $('.comments-hide').slideDown();
+  })
+
+
+
   $('#link_address').bind("focus", clear_search);
 
   function clear_search(){
