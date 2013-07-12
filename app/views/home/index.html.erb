@@ -28,7 +28,7 @@
 	<div class="link-wrapper">
 
 		<!-- image link --> 
-		<div class="link-space">
+		<div class="link">
 			<!-- text link -->  
 			<a href="<%= link.address %>" target="_blank">
 				<%= truncate(link.title, :length => 120) %>
@@ -49,43 +49,42 @@
 	</div>
 
 	<!-- comments -->  
-	<div class="comments">
-		<div class="comments-inner">
+	<div class="comment-amount" id="c_<%= link.id %>">
+		<div class="comment-amount-inner">
 			<%= link.comments.count %>
 		</div>
 	</div>
 
-	<div class="comments-hide" style="display:none">
+	<div class="comm-hide" id="cc_<%= link.id %>" style="display:none">
 		<% link.comments.each do |comment| %>
-		<p>
-			<strong>Commenter:</strong>
-			<%= comment.commenter %>
-		</p>
-
-		<p>
-			<strong>Comment:</strong>
-			<%= comment.body %>
-		</p>
+		<div class="comment">
+			<div class="comment-text">
+				<h3><%= comment.body %></h3>
+				<p>
+					<%= comment.commenter %>
+				</p>
+			</div>
+		</div>
 		<% end %>
 
-
-		<h2>Add a comment:</h2>
-		<%= form_for([link, link.comments.build]) do |f| %>
-		<p>
-			<%= f.label :commenter %><br />
-			<%= f.text_field :commenter %>
-		</p>
-		<p>
-			<%= f.label :body %><br />
-			<%= f.text_area :body %>
-		</p>
-		<p>
-			<%= f.submit %>
-		</p>
-		<% end %>
+		<div class="new-comment">
+			<%= form_for([link, link.comments.build]) do |f| %>
+			<p>
+				<%= f.label :commenter %><br />
+				<%= f.text_field :commenter %>
+			</p>
+			<p>
+				<%= f.label :body %><br />
+				<%= f.text_area :body %>
+			</p>
+			<p>
+				<%= f.submit %>
+			</p>
+			<% end %>
+		</div>
 	</div>
 
-<% end %>
+	<% end %>
 
 
 

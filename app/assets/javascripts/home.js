@@ -4,8 +4,41 @@ $(document).ready(function(){
     $(this).select();
   })
 
-  $('.comments').click( function() {
-    $('.comments-hide').slideDown();
+
+  /*
+  Gets the height of display:none div for a smooth slideToggle
+  animation
+  */
+  function getHeight(id) {
+    $(id)
+    .css({
+        position:   'absolute',
+        visibility: 'hidden',
+        display:    'block'
+      });
+
+    optionHeight = $(id).height();
+    console.log(optionHeight )
+
+    $(id)
+    .css({
+        position:   'static',
+        visibility: 'visible',
+        display:    'none',
+        height:     optionHeight + 140,
+      });
+  }
+
+  $('.comment-amount').click( function() {
+
+    var id = $(this).attr('id');
+    var comm = '#c' + id
+    getHeight( comm )
+
+    //TODO
+    //adjust slide speed to number of comments
+
+    $( comm ).delay(200).slideToggle('slow');
   })
 
 

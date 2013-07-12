@@ -2,9 +2,10 @@
 @gray: #AFB1B3;
 @lightGreen: #88B7B1;
 
-body{
+html, body{
 	font-family: sans-serif;
 	font-size: 14px;
+	padding-bottom: 120px;
 }
 .container {
 	width: 980px;
@@ -31,10 +32,6 @@ body{
 	}
 }
 
-input[type=text]{
-	width: 600px;
-	margin-top: 10px;
-}
 input[type=submit]{
 	margin-top: 10px;
 }
@@ -50,9 +47,8 @@ a{
 	height: 110px;
 	margin-top: 10px;
 	background: #ddd;
-	border-radius: 0px;
 }
-.link-space {
+.link {
 	margin: 30px 0 50px 50px;
 	a {
 		font-size: 26px;
@@ -78,16 +74,60 @@ a{
 	color: #999;
 }
 
-.comments {
-	display: table-cell;
+.comment-amount {
+	position: relative;
 	float: left;
 	width: 15%;
 	height: 110px;
 	margin-top: 10px;
 	background: #a4a6a9;
-	vertical-align: middle;
 	text-align: center;
+	&:hover {
+		background: #909192;
+	};
 }
-.comments-inner{
+.comment-amount-inner { 
 	line-height: 110px;
 }
+.comm-hide{
+	position: relative;
+}
+
+.comment {
+	clear: both;
+	width: 100%;
+	background: #a4a6a9;
+	border-bottom: 1px solid #c8c9cb;
+	padding: 16px 0;
+	.comment-text {
+		margin: 0 50px;
+		h3 {
+			margin: 0;
+			color: #494644;
+			line-height: 1.3;
+		}
+		p {
+			margin: 0;
+			color: #555;
+			font-size: 12px;
+			font-weight: bold;
+		}
+	}
+}
+
+.new-comment {
+	input[type=text] {
+		width: 100%;
+		background: transparent;
+	}
+	textarea {
+		width: 100%;
+		height: 80px;
+	}
+}
+
+
+
+
+
+
