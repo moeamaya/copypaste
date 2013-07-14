@@ -59,7 +59,7 @@
 		<% link.comments.each do |comment| %>
 		<div class="comment">
 			<div class="comment-text">
-				<h3><%= comment.body %></h3>
+				<h3><%= comment.body.html_safe %></h3>
 				<p>
 					<%= comment.commenter %>
 				</p>
