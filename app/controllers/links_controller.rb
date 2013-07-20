@@ -15,9 +15,7 @@ class LinksController < ApplicationController
   def show
     @links = Links.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-    end
+    redirect_to '/'
   end
 
   # GET /links/new

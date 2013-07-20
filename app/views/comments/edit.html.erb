@@ -1,0 +1,15 @@
+<h1>Editing comment</h1>
+
+<%= form_for([@links, @comment]) do |f| %>
+<p>
+	<%= f.label :commenter %><br />
+	<%= f.text_field :commenter %>
+</p>
+<p>
+	<%= f.label :body %><br />
+	<%= f.text_area :body %>
+</p>
+<p>
+	<%= f.submit %>
+</p>
+<% end %>
