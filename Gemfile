@@ -34,6 +34,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'unicorn'
 end
 
 # To use ActiveModel has_secure_password
