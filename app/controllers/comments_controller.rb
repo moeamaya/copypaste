@@ -3,6 +3,8 @@ class CommentsController < ApplicationController
   def create
     @links = Links.find(params[:link_id])
     @comment = @links.comments.create(params[:comment])
+
+    #@links.update_attribute(:position, @comment.created_at )
     redirect_to "/"
   end
 
