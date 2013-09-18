@@ -2,8 +2,9 @@ class HomeController < ApplicationController
   # GET /links
   def index
     #@links = Links.order('created_at DESC').order('position DESC').all
-    @data = Links.all
-    @games = @data.sort_by {|x| [x.position, x.created_at] }
+    @position = Links.where("position is not null").order("position DESC")
+    @empty_position = Links.where("position is null").order("created_at DESC")
+    @links = @position + @empty_position
 
 
     respond_to do |format|
