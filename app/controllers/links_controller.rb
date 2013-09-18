@@ -36,9 +36,11 @@ class LinksController < ApplicationController
   # POST /links
   def create
     @links = Links.new(params[:link])
+    @links.position = @links.created_at
 
     respond_to do |format|
       if @links.save
+        @links.update_attribute(:position, @links.created_at )
         format.html { redirect_to('/', :notice => 'Link was successfully created.') }
       else
         format.html { render :action => "new" }
