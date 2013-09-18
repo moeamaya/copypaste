@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   # GET /links
   def index
-    @links = Links.order('position DESC').order('created_at DESC').all
+    @links = Links.order('created_at DESC').order('position DESC').all
 
 
     respond_to do |format|
