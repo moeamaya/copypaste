@@ -1,6 +1,9 @@
-@darkBrown: #494644;
-@gray: #AFB1B3;
-@lightGreen: #88B7B1;
+$darkBrown: #494644;
+$gray: #AFB1B3;
+$lightGreen: #88B7B1;
+$linkHeight: 100px;
+$linkHeightMobile: 70px;
+
 
 html, body{
 	font-family: sans-serif;
@@ -8,26 +11,24 @@ html, body{
 	padding-bottom: 120px;
 }
 .container {
-	width: 980px;
 	margin: 0 auto;
 }
 .pasteee {
-	background: @darkBrown;
-	width: 980px;
-	height: 84px;
-	display: table-cell;
-	vertical-align: middle;
+	background: $darkBrown;
+	height: 70px;
+	line-height: 70px;
+	padding: 0 5%;
 	input[type=text] {
-		margin: 0 50px;
-		width: 880px;
+		width: 100%;
 		border: none;
-		border-bottom: 1px solid @gray;
+		border-radius: 0;
+		border-bottom: 1px solid $gray;
 		background: transparent;
-		color: @lightGreen;
+		color: $lightGreen;
 		&:focus{
 			outline: none;
 			border: none;
-			border-bottom: 1px solid @gray;
+			border-bottom: 1px solid $gray;
 		};
 	}
 }
@@ -37,18 +38,22 @@ input[type=submit]{
 }
 
 a{
-	color: @darkBrown;
+	color: $darkBrown;
 	text-decoration: none;
 }
 .link-wrapper{
 	position: relative;
 	float: left;
 	width: 85%;
-	height: 110px;
+	height: $linkHeight;
 	margin-top: 10px;
 	background: #ddd;
 }
 .link {
+	width: 90%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	margin: 30px 0 50px 50px;
 	a {
 		font-size: 22px;
@@ -81,7 +86,7 @@ a{
 	position: relative;
 	float: left;
 	width: 15%;
-	height: 110px;
+	height: $linkHeight;
 	margin-top: 10px;
 	background: #b2b1af;
 	text-align: center;
@@ -90,8 +95,8 @@ a{
 		cursor: pointer;
 	};
 }
-.comment-amount-inner { 
-	line-height: 110px;
+.comment-amount-inner {
+	line-height: $linkHeight;
 }
 
 .comm-hide {
@@ -108,6 +113,7 @@ a{
 		margin: 0 50px;
 		margin-bottom: 30px;
 		h3 {
+			font-size: 18px;
 			margin: 0;
 			color: #302d2d;
 			line-height: 1.4;
@@ -142,7 +148,45 @@ a{
 	}
 }
 
+@media only screen and (max-width: $mobile-breakpoint) {
+	.link-wrapper {
+		height: $linkHeightMobile;
+	}
+	.link {
+		margin: 16px 0 20px 20px;
+		a {
+			font-size: 14px;
+		}
+	}
+	.link-attr {
+		font-size: 10px;
+	}
+	.delete {
+		margin-top: 2px;
+		a {
+			font-size: 10px;
+		}
+	}
+	.comment-amount {
+		height: $linkHeightMobile;
+	}
+	.comment-amount-inner {
+		line-height: $linkHeightMobile;
+	}
+	.comment {
+		padding: 2% 0 10% 0;
+		.comment-text {
+			margin: 0 7%;
+			h3 {
+				font-size: 12px;
+			}
+			p {
+				font-size: 10px;
+			}
+		}
+	}
 
+}
 
 
 

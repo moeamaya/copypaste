@@ -1,55 +1,50 @@
-
 <div class="container">
+	<div class="section">
+		<div class="col twelve">
+			<div class="pasteee">
+				<%= form_for :link, url:links_path do |f| %>
+				<%= f.text_field :address, :placeholder => 'PASTEEE a link...', :autocomplete => 'off' %>
+				<br />
+			</div>
+			<div id="spinner" style="display:none">
+				<%= image_tag ("spinner.gif") %>
+			</div>
 
-	<div class="pasteee">
-		<%= form_for :link, url:links_path do |f| %>
-		<%= f.text_field :address, :placeholder => 'PASTEEE a link...', :autocomplete => 'off' %>
-		<br />
+			<div id="title_hide" style="display:none">
+				<%= f.label :name, 'User' %>
+				<%= f.text_field :name %><br />
+
+				<%= f.label :title %>
+				<%= f.text_field :title %><br />
+
+				<%= f.submit %>
+				<% end %>
+			</div>
+		</div>
 	</div>
-	<div id="spinner" style="display:none">
-		<%= image_tag ("spinner.gif") %>
-	</div>
-
-	<div id="title_hide" style="display:none">
-		<%= f.label :name, 'User' %>
-		<%= f.text_field :name %><br />
-
-		<%= f.label :title %>
-		<%= f.text_field :title %><br />
-
-		<%= f.submit %>
-		<% end %>
-	</div>
 
 
-	<br>
-	<% @links.each do |link| %>
-	
+<% @links.each do |link| %>
 	<div class="link-wrapper">
-
-		<!-- image link --> 
+		<!-- image link -->
 		<div class="link">
-			<!-- text link -->  
+			<!-- text link -->
 			<a href="<%= link.address %>" target="_blank">
-				<%= truncate(link.title, :length => 70) %>
+				<%= truncate(link.title, :length => 80) %>
 			</a>
-
-			<!-- link attributes -->  
+			<!-- link attributes -->
 			<div class="link-attr">
 				<b><%= link.name %></b>
 				<%= link.created_at.strftime("%b %d %Y") %>
 			</div>
-
 			<div class="delete">
 				<%= link_to 'Edit', edit_link_path(link) %>
 				<%= link_to 'Delete', link, :confirm => 'Are you sure?', :method => :delete %>
 			</div>
-
 		</div>
-		
 	</div>
 
-	<!-- comments -->  
+	<!-- comments -->
 	<div class="comment-amount" id="c_<%= link.id %>">
 		<div class="comment-amount-inner">
 			<%= link.comments.count %>
@@ -93,7 +88,7 @@
 	</div>
 
 	<% end %>
-
+</div> <!-- CLOSE container -->
 
 
 
