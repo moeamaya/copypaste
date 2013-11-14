@@ -34,4 +34,7 @@ Copypaste::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  ENV['IRON_WORKER_TOKEN'] = '5ygZ63bnHYZVdkyMxnzfUXFv2Rg'
+  ENV['IRON_WORKER_PROJECT_ID'] = '52852289da65b60005000042'
 end

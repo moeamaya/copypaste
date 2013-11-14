@@ -8,7 +8,8 @@ gem 'nokogiri'
 gem 'newrelic_rpm'
 gem 'normalize-rails'
 gem 'hirb'
-
+gem 'iron_worker_ng'
+gem 'twitter'
 
 # Gems used only for assets and not required
 # in production environments by default.
