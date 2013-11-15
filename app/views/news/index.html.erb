@@ -1,7 +1,9 @@
 <div class="container">
   <div class="section">
     <div class="col twelve">
-      Yo
+        <% @trends.each do |trend| %>
+          <%= trend.name %><br>
+        <% end %>
     </div>
   </div>
 </div>
