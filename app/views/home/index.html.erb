@@ -34,8 +34,8 @@
 			</a>
 			<!-- link attributes -->
 			<div class="link-attr">
-				<b><%= link.name %></b>
-				<%= link.created_at.strftime("%b %d %Y") %>
+				<b><%= link.name %></b>&nbsp;
+				<i><%= time_ago_in_words(link.created_at) %> ago</i>
 			</div>
 			<div class="delete">
 				<%= link_to 'Edit', edit_link_path(link) %>

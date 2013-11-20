@@ -7,6 +7,10 @@ class NewsController < ApplicationController
 
   private
 
+  def authTwitter
+
+  end
+
   def initTwitter
     client = Twitter.configure do  |config|
       config.consumer_key        = "5vthI8St0cgtsEBsVViq0Q"
