@@ -6,7 +6,7 @@ $(document).ready(function(){
 
   var current;
 
-  $('.link-wrapper').click( function() {
+  $('.link').click( function() {
     // hide any previous div
     if (current) {
       $(current).hide();

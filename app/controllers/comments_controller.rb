@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 
   def create
     @links = Links.find(params[:link_id])
-    @comment = @links.comments.create(params[:comment])
+    @comment = @links.comments.create(comments_params)
 
     @links.update_attribute(:position, @comment.created_at )
     redirect_to "/"
@@ -45,6 +45,12 @@ class CommentsController < ApplicationController
     @comment = @link.comments.find(params[:id])
     @comment.destroy
     redirect_to "/"
+  end
+
+  private
+
+  def comments_params
+    params.require(:comment).permit(:commenter, :body)
   end
 
 end

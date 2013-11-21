@@ -23,18 +23,15 @@
 
 <div class="links">
 <% @links.each do |link| %>
-	<div class="link-wrapper" id="c_<%= link.id %>">
+	<div class="link" id="c_<%= link.id %>">
 		<!-- image link -->
-		<div class="link">
 			<!-- text link -->
-			<a href="<%= link.address %>" target="_blank">
-				<%= truncate(link.title, :length => 120) %>
-			</a>
+			<h3><%= truncate(link.title, :length => 120) %></h3>
 			<!-- link attributes -->
 			<div class="link-attr">
 				<b><%= link.name %></b>&nbsp;
 				<i><%= time_ago_in_words(link.created_at) %> ago</i>&nbsp;
-				<%= link.comments.count %> comments
+				| <%= link.comments.count %> comments
 			</div>
 			<!--
 			<div class="delete">
@@ -42,7 +39,6 @@
 				<%= link_to 'Delete', link, :confirm => 'Are you sure?', :method => :delete %>
 			</div>
 			-->
-		</div>
 	</div>
 	<% end %>
 </div><!-- CLOSE links -->
