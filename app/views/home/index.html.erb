@@ -47,6 +47,11 @@
 <div class="comments">
 <% @links.each do |link| %>
 	<div class="comm-hide" id="cc_<%= link.id %>" style="display:none">
+
+		<div class="link-card">
+			<h2><%= link.title %></h2>
+		</div>
+
 		<% link.comments.each do |comment| %>
 		<div class="comment">
 			<div class="comment-text">

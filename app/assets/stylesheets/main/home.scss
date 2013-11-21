@@ -114,10 +114,16 @@ a{
 	right: 0;
 	overflow-y: scroll;
 	width: 70%;
-	padding-bottom: 40px;
+	padding: 20px 40px 40px;
 	background: #e6e6e6;
 }
 
+.link-card {
+	h2 {
+		font-weight: 400;
+		text-decoration: underline;
+	}
+}
 
 .comment {
 	clear: both;

@@ -11,6 +11,9 @@ $(document).ready(function(){
     if (current) {
       $(current).hide();
     }
+    // set background color
+    $(this).siblings().css('background', '')
+    $(this).css('background', '#e6e6e6');
 
     // show the comments for this link
     var id = $(this).attr('id');
