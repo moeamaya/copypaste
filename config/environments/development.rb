@@ -6,9 +6,6 @@ Copypaste::Application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
-  # Log error messages when you accidentally call methods on nil.
-  config.whiny_nils = true
-
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
@@ -35,6 +32,5 @@ Copypaste::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
-  ENV['IRON_WORKER_TOKEN'] = '5ygZ63bnHYZVdkyMxnzfUXFv2Rg'
-  ENV['IRON_WORKER_PROJECT_ID'] = '52852289da65b60005000042'
+  config.eager_load = false
 end
