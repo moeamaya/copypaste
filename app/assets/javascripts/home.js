@@ -4,15 +4,22 @@ $(document).ready(function(){
     $(this).select();
   })
 
+  var current;
 
-  $('.comment-amount').click( function() {
+  $('.link-wrapper').click( function() {
+    // hide any previous div
+    if (current) {
+      $(current).hide();
+    }
 
+    // show the comments for this link
     var id = $(this).attr('id');
     var comm = '#c' + id
+    current = comm;
 
     //TODO
      //adjust slide speed to number of comments
-     $( comm ).slideToggle();
+     $( comm ).slideDown('fast');
 
    })
 

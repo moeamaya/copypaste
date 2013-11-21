@@ -53,6 +53,7 @@ a{
 }
 
 .links {
+	box-sizing: border-box;
 	display: block;
 	position: absolute;
 	top: 70px;
@@ -66,11 +67,9 @@ a{
 
 .link-wrapper{
 	position: relative;
-	float: left;
-	width: 85%;
 	background: #fff;
 	box-sizing: border-box;
-	padding: 30px;
+	padding: 24px 30px;
 }
 .link {
 	a {
@@ -84,6 +83,7 @@ a{
 .link-attr{
 	color: #888;
 	font-size: 12px;
+	margin-top: 4px;
 }
 
 .delete {
@@ -98,6 +98,20 @@ a{
 }
 .delete a:hover{
 	text-decoration: underline;
+}
+
+.comments {
+	box-sizing: border-box;
+	display: block;
+	position: absolute;
+	top: 70px;
+	bottom: 0;
+	left: 30%;
+	right: 0;
+	overflow-y: scroll;
+	width: 70%;
+	padding-bottom: 40px;
+	background: #e6e6e6;
 }
 
 .comment-amount {

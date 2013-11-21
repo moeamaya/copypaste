@@ -23,7 +23,7 @@
 
 <div class="links">
 <% @links.each do |link| %>
-	<div class="link-wrapper">
+	<div class="link-wrapper" id="c_<%= link.id %>">
 		<!-- image link -->
 		<div class="link">
 			<!-- text link -->
@@ -33,7 +33,8 @@
 			<!-- link attributes -->
 			<div class="link-attr">
 				<b><%= link.name %></b>&nbsp;
-				<i><%= time_ago_in_words(link.created_at) %> ago</i>
+				<i><%= time_ago_in_words(link.created_at) %> ago</i>&nbsp;
+				<%= link.comments.count %> comments
 			</div>
 			<!--
 			<div class="delete">
@@ -43,16 +44,12 @@
 			-->
 		</div>
 	</div>
-<!-- CLOSE links -->
+	<% end %>
+</div><!-- CLOSE links -->
 
 
-
-	<div class="comment-amount" id="c_<%= link.id %>">
-		<div class="comment-amount-inner">
-			<%= link.comments.count %>
-		</div>
-	</div>
-
+<div class="comments">
+<% @links.each do |link| %>
 	<div class="comm-hide" id="cc_<%= link.id %>" style="display:none">
 		<% link.comments.each do |comment| %>
 		<div class="comment">
@@ -88,7 +85,6 @@
 			<% end %>
 		</div>
 	</div>
-
 	<% end %>
 </div> <!-- CLOSE comments -->
 
