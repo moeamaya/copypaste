@@ -5,14 +5,24 @@ $linkHeight: 100px;
 $linkHeightMobile: 70px;
 
 
+
 html, body{
-	font-family: sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 14px;
-	padding-bottom: 120px;
+	margin: 0;
+	padding: 0;
 }
-.container {
-	margin: 0 auto;
+
+
+.touch {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
 }
+
+
 .pasteee {
 	background: $darkBrown;
 	height: 70px;
@@ -41,22 +51,31 @@ a{
 	color: $darkBrown;
 	text-decoration: none;
 }
+
+.links {
+	display: block;
+	position: absolute;
+	top: 70px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow-y: scroll;
+	width: 30%;
+	padding-bottom: 40px;
+}
+
 .link-wrapper{
 	position: relative;
 	float: left;
 	width: 85%;
-	height: $linkHeight;
-	margin-top: 10px;
-	background: #ddd;
+	background: #fff;
+	box-sizing: border-box;
+	padding: 30px;
 }
 .link {
-	width: 90%;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	margin: 30px 0 50px 50px;
 	a {
-		font-size: 22px;
+		font-size: 17px;
+		line-height: 1.45;
 		&:hover{
 			text-decoration: underline;
 		}
@@ -68,7 +87,6 @@ a{
 }
 
 .delete {
-	position: absolute;
 	margin-top: 10px;
 	margin-left: 0;
 	a {
@@ -86,7 +104,7 @@ a{
 	position: relative;
 	float: left;
 	width: 15%;
-	height: $linkHeight;
+	height: auto;
 	margin-top: 10px;
 	background: #b2b1af;
 	text-align: center;
@@ -94,9 +112,6 @@ a{
 		background: #a3a2a2;
 		cursor: pointer;
 	};
-}
-.comment-amount-inner {
-	line-height: $linkHeight;
 }
 
 .comm-hide {
@@ -148,7 +163,7 @@ a{
 	}
 }
 
-@media only screen and (max-width: $mobile-breakpoint) {
+@media only screen and (max-width: 480px) {
 	.link-wrapper {
 		height: $linkHeightMobile;
 	}

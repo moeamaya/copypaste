@@ -35,7 +35,7 @@ class LinksController < ApplicationController
 
   # POST /links
   def create
-    @links = Links.new(params[:link])
+    @links = Links.new(link_params)
     @links.position = @links.created_at
 
     respond_to do |format|
@@ -73,4 +73,14 @@ class LinksController < ApplicationController
       format.html { redirect_to('/') }
     end
   end
+
+  private
+
+  def link_params
+    params.require(:link).permit(:addres, :name, :title)
+  end
+
+
+
+
 end

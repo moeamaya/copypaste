@@ -1,50 +1,52 @@
-<div class="container">
-	<div class="section">
-		<div class="col twelve">
-			<div class="pasteee">
-				<%= form_for :link, url:links_path do |f| %>
-				<%= f.text_field :address, :placeholder => 'PASTEEE a link...', :autocomplete => 'off' %>
-				<br />
-			</div>
-			<div id="spinner" style="display:none">
-				<%= image_tag ("spinner.gif") %>
-			</div>
+<div class="touch">
 
-			<div id="title_hide" style="display:none">
-				<%= f.label :name, 'User' %>
-				<%= f.text_field :name %><br />
+<div class="pasteee">
+	<%= form_for :link, url:links_path do |f| %>
+	<%= f.text_field :address, :placeholder => 'PASTEEE a link...', :autocomplete => 'off' %>
+	<br />
+</div>
+<div id="spinner" style="display:none">
+	<%= image_tag ("spinner.gif") %>
+</div>
 
-				<%= f.label :title %>
-				<%= f.text_field :title %><br />
+<div id="title_hide" style="display:none">
+	<%= f.label :name, 'User' %>
+	<%= f.text_field :name %><br />
 
-				<%= f.submit %>
-				<% end %>
-			</div>
-		</div>
-	</div>
+	<%= f.label :title %>
+	<%= f.text_field :title %><br />
+
+	<%= f.submit %>
+	<% end %>
+</div>
 
 
+<div class="links">
 <% @links.each do |link| %>
 	<div class="link-wrapper">
 		<!-- image link -->
 		<div class="link">
 			<!-- text link -->
 			<a href="<%= link.address %>" target="_blank">
-				<%= truncate(link.title, :length => 80) %>
+				<%= truncate(link.title, :length => 120) %>
 			</a>
 			<!-- link attributes -->
 			<div class="link-attr">
 				<b><%= link.name %></b>&nbsp;
 				<i><%= time_ago_in_words(link.created_at) %> ago</i>
 			</div>
+			<!--
 			<div class="delete">
 				<%= link_to 'Edit', edit_link_path(link) %>
 				<%= link_to 'Delete', link, :confirm => 'Are you sure?', :method => :delete %>
 			</div>
+			-->
 		</div>
 	</div>
+<!-- CLOSE links -->
 
-	<!-- comments -->
+
+
 	<div class="comment-amount" id="c_<%= link.id %>">
 		<div class="comment-amount-inner">
 			<%= link.comments.count %>
@@ -88,7 +90,11 @@
 	</div>
 
 	<% end %>
-</div> <!-- CLOSE container -->
+</div> <!-- CLOSE comments -->
+
+
+
+</div>  <!-- CLOSE touch -->
 
 
 

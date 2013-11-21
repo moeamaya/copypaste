@@ -16,8 +16,6 @@ $(document).ready(function(){
 
    })
 
-
-
   $('#link_address').bind("focus", clear_search);
 
   function clear_search(){
