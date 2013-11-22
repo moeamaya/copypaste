@@ -9,27 +9,29 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130918014501) do
+ActiveRecord::Schema.define(version: 20131122014218) do
 
-  create_table "comments", :force => true do |t|
+  create_table "comments", force: true do |t|
     t.string   "commenter"
     t.text     "body"
     t.integer  "links_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "comments", ["links_id"], :name => "index_comments_on_links_id"
+  add_index "comments", ["links_id"], name: "index_comments_on_links_id"
 
-  create_table "links", :force => true do |t|
+  create_table "links", force: true do |t|
     t.string   "name"
     t.string   "title"
     t.text     "address"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.datetime "position"
+    t.text     "description"
+    t.text     "thumbnail"
   end
 
 end

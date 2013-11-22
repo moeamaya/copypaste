@@ -53,7 +53,11 @@ $(document).ready(function(){
         success: function(response){
           $('#spinner').hide();
           $('#title_hide').slideDown();
-          $('#link_title').val(response);
+          r = JSON.parse(response)
+          res = r.table
+          $('#link_title').val(res.title);
+          $('#description').text(res.description);
+          $('#thumbnail').attr('src', res.images[0].url);
           $('#link_name').delay(1000).focus();
         },
         error: function(request, status, error){
@@ -65,3 +69,5 @@ $(document).ready(function(){
 
 
 })//document ready
+
+var res

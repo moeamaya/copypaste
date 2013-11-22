@@ -1,10 +1,12 @@
 require 'nokogiri'
 require 'open-uri'
+require 'embedly'
+require 'json'
 
 class SearchController < ApplicationController
 
   # GET /links
-  def index
+  def oldsearch
     @search = params[:link]
 
     page = Nokogiri::HTML(open(@search))
@@ -18,13 +20,17 @@ class SearchController < ApplicationController
     end
   end
 
-  def embedly
+  def index
     # call api with key (you'll need a real key)
     embedly_api = Embedly::API.new :key => '02431a73f9cd4dc1b0db0069d31c2bba',
     :user_agent => 'Mozilla/5.0 (compatible; mytestapp/1.0; my@email.com)'
-    url = 'http://www.guardian.co.uk/media/2011/jan/21/andy-coulson-phone-hacking-statement'
+    url = params[:link]
     obj = embedly_api.extract :url => url
     puts JSON.pretty_generate(obj[0].marshal_dump)
+    @web_result = obj[0]
+    respond_to do |format|
+      format.json { render :json => @web_result }
+    end
   end
 
 end
