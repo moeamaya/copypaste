@@ -28,7 +28,7 @@ $(document).ready(function(){
    })
 
 
-  $('#new_links').bind("focus", clear_search);
+  $('#links_address').bind("focus", clear_search);
 
   function clear_search(){
     $('#spinner').slideUp();
