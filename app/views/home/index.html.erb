@@ -16,8 +16,12 @@
 	<%= f.label :title %>
 	<%= f.text_field :title %><br />
 
-	<div id="description"></div>
-	<img id="thumbnail" src="">
+	<%= f.label :description %>
+	<%= f.text_field :description %><br />
+
+	<%= f.label :thumbnail %>
+	<%= f.hidden_field :thumbnail %><br />
+	<img id="thumbnail" src="" style="max-height: 200px">
 
 	<%= f.submit %>
 	<% end %>

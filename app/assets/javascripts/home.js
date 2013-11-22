@@ -56,7 +56,8 @@ $(document).ready(function(){
           r = JSON.parse(response)
           res = r.table
           $('#link_title').val(res.title);
-          $('#description').text(res.description);
+          $('#link_description').val(res.description);
+          $('#link_thumbnail').val(res.images[0].url);
           $('#thumbnail').attr('src', res.images[0].url);
           $('#link_name').delay(1000).focus();
         },
