@@ -32,6 +32,8 @@ gem 'newrelic_rpm'
 # console database debugger, in rails console type 'Hirb.enable'
 gem 'hirb'
 
+# parses urls
+gem 'embedly'
 
 group :development do
 	gem 'sqlite3'
