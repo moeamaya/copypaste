@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
 
-  $('#link_address').click( function(){
+  $('#new_links').click( function(){
     $(this).select();
   })
 
@@ -28,7 +28,7 @@ $(document).ready(function(){
    })
 
 
-  $('#link_address').bind("focus", clear_search);
+  $('#new_links').bind("focus", clear_search);
 
   function clear_search(){
     $('#spinner').slideUp();
@@ -36,15 +36,18 @@ $(document).ready(function(){
   }
 
   // Or you can paste your URL directly to your input box.
-  $('#link_address').bind("paste", parse_link);
+  $('#links_address').bind("paste", parse_link);
 
   // Get website information.
   function parse_link(){
     $('#spinner').slideDown('fast');
     setTimeout(function() {
+      var url = $('#links_address').val();
+      console.log(url);
+
       $.ajax({
         type: "GET",
-        url: '/search?'+'link='+$('#link_address').val(),
+        url: '/search?'+'links=' + url,
 
         processData: false,
         dataType: 'html',
@@ -55,11 +58,11 @@ $(document).ready(function(){
           $('#title_hide').slideDown();
           r = JSON.parse(response)
           res = r.table
-          $('#link_title').val(res.title);
-          $('#link_description').val(res.description);
-          $('#link_thumbnail').val(res.images[0].url);
+          $('#links_title').val(res.title);
+          $('#links_description').val(res.description);
+          $('#links_thumbnail').val(res.images[0].url);
           $('#thumbnail').attr('src', res.images[0].url);
-          $('#link_name').delay(1000).focus();
+          $('#links_name').delay(1000).focus();
         },
         error: function(request, status, error){
           alert(status)

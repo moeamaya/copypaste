@@ -24,7 +24,7 @@ class SearchController < ApplicationController
     # call api with key (you'll need a real key)
     embedly_api = Embedly::API.new :key => '02431a73f9cd4dc1b0db0069d31c2bba',
     :user_agent => 'Mozilla/5.0 (compatible; mytestapp/1.0; my@email.com)'
-    url = params[:link]
+    url = params[:links]
     obj = embedly_api.extract :url => url
     puts JSON.pretty_generate(obj[0].marshal_dump)
     @web_result = obj[0]
