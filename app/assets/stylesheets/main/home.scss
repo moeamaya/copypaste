@@ -22,7 +22,6 @@ html, body{
 	right: 0;
 }
 
-
 .pasteee {
 	background: $darkBrown;
 	height: 70px;
@@ -42,6 +41,28 @@ html, body{
 		};
 	}
 }
+
+#spinner {
+	box-sizing: border-box;
+	position: absolute;
+	top: 70px;
+	width: 100%;
+	padding: 20px;
+	background: #fff;
+	box-shadow: 1px 1px 3px #ccc;
+	z-index: 10;
+}
+#title_hide {
+	box-sizing: border-box;
+	position: absolute;
+	top: 70px;
+	width: 100%;
+	padding: 20px;
+	background: #fff;
+	box-shadow: 1px 1px 3px #ccc;
+	z-index: 10;
+}
+
 
 input[type=submit]{
 	margin-top: 10px;
@@ -88,6 +109,15 @@ a{
 	color: #888;
 	font-size: 12px;
 	margin-top: 4px;
+	h4 {
+		display: inline-block;
+		padding-right: 4px;
+		font-weight: 700;
+		text-transform: uppercase;
+		margin: 0;
+		line-height: 1.5;
+		color: $darkBrown;
+	}
 }
 
 .delete {
@@ -114,100 +144,92 @@ a{
 	right: 0;
 	overflow-y: scroll;
 	width: 70%;
-	padding: 20px 40px 40px;
+	padding: 40px 60px 30px;
 	background: #e6e6e6;
+	.left {
+		display: block;
+		width: 20%;
+		float: left;
+	}
+	.right {
+		display: block;
+		width: 80%;
+		float: left;
+	}
 }
 
 .link-card {
+	overflow: auto;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 30px;
+	margin-bottom: 10px;
+	.thumb {
+		display: block;
+		background: #eee;
+		width: 100px;
+		height: 100px;
+	}
 	h2 {
+		margin: 0;
+		padding: 0;
+		font-size: 24px;
 		font-weight: 400;
 		text-decoration: underline;
+		color: #999;
 	}
 }
 
 .comment {
 	clear: both;
-	width: 100%;
-	background: #b2b1af;
-	border-bottom: 1px solid #c8c9cb;
-	padding: 16px 0;
-	.comment-text {
-		margin: 0 50px;
-		margin-bottom: 30px;
-		h3 {
-			font-size: 17px;
-			margin: 0;
-			color: #3d3939;
-			line-height: 1.5;
-			font-weight: lighter;
-		}
-		p {
-			margin: 0;
-			color: #555;
-			font-size: 12px;
-			font-weight: normal;
-		}
-		a {
-			color: #777;
-			text-decoration: underline;
-			font-weight: normal;
-		}
+	padding: 40px 0;
+	h4 {
+		font-size: 12px;
+		font-weight: 700;
+		text-transform: uppercase;
+		margin: 0;
+		line-height: 1.5;
+		color: $darkBrown;
 	}
+	p {
+		margin: 0;
+		color: #555;
+		font-size: 17px;
+	}
+	a {
+		color: #777;
+		text-decoration: underline;
+		font-weight: normal;
+	}
+	.delete {
+			margin-top: 0px;
+			a {
+				color: #999;
+				font-size: 10px;
+				margin-right: 10px;
+				text-decoration: underline;
+			}
+		}
+		.delete a:hover{
+			text-decoration: underline;
+		}
 }
 
 .new-comment {
+	clear: both;
+	margin-top: 20px;
 	display: block;
 	position: relative;
 	float: left;
 	width: 100%;
 	input[type=text] {
-		width: 90%;
+		width: 100%;
 	}
 	textarea {
-		width: 90%;
+		width: 100%;
 		height: 80px;
 	}
 }
 
-@media only screen and (max-width: 480px) {
-	.link-wrapper {
-		height: $linkHeightMobile;
-	}
-	.link {
-		margin: 16px 0 20px 20px;
-		a {
-			font-size: 14px;
-		}
-	}
-	.link-attr {
-		font-size: 10px;
-	}
-	.delete {
-		margin-top: 2px;
-		a {
-			font-size: 10px;
-		}
-	}
-	.comment-amount {
-		height: $linkHeightMobile;
-	}
-	.comment-amount-inner {
-		line-height: $linkHeightMobile;
-	}
-	.comment {
-		padding: 2% 0 10% 0;
-		.comment-text {
-			margin: 0 7%;
-			h3 {
-				font-size: 12px;
-			}
-			p {
-				font-size: 10px;
-			}
-		}
-	}
-
-}
 
 
 

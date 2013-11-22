@@ -1,5 +1,6 @@
 
 $(document).ready(function(){
+
   $('#link_address').click( function(){
     $(this).select();
   })
@@ -26,6 +27,7 @@ $(document).ready(function(){
 
    })
 
+
   $('#link_address').bind("focus", clear_search);
 
   function clear_search(){
@@ -38,9 +40,8 @@ $(document).ready(function(){
 
   // Get website information.
   function parse_link(){
-    $('#spinner').slideDown();
+    $('#spinner').slideDown('fast');
     setTimeout(function() {
-
       $.ajax({
         type: "GET",
         url: '/search?'+'link='+$('#link_address').val(),
