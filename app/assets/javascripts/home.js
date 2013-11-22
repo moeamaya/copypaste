@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
 
-  $('#new_links').click( function(){
+  $('#links_address').click( function(){
     $(this).select();
   })
 
@@ -52,7 +52,7 @@ $(document).ready(function(){
         processData: false,
         dataType: 'html',
         type: 'GET',
-        timeout: 3000,
+        timeout: 5000,
         success: function(response){
           $('#spinner').hide();
           $('#title_hide').slideDown();
