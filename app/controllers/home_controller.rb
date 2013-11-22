@@ -4,7 +4,8 @@ class HomeController < ApplicationController
     #@links = Links.order('created_at DESC').order('position DESC').all
     @position = Links.where("position is not null").order("position DESC")
     @empty_position = Links.where("position is null").order("created_at DESC")
-    @links = @position + @empty_position
+    @links_show = @position + @empty_position
+    @links = Links.new
 
 
     respond_to do |format|

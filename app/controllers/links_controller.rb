@@ -2,7 +2,8 @@ class LinksController < ApplicationController
   # GET /links
   # GET /links.xml
   def index
-    @links = Links.order('position DESC').all
+    @links_show = Links.order('position DESC').all
+    @links = Links.new
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +14,7 @@ class LinksController < ApplicationController
   # GET /links/1
   # GET /links/1.xml
   def show
-    @links = Links.find(params[:id])
+    @links = Links.new
 
     redirect_to '/'
   end
@@ -53,7 +54,7 @@ class LinksController < ApplicationController
     @link = Links.find(params[:id])
 
     respond_to do |format|
-      if @link.update_attributes(params[:links])
+      if @link.update_attributes(link_params)
         format.html { redirect_to(@link, :notice => 'Link was successfully updated.') }
         format.xml  { head :ok }
       else
@@ -77,7 +78,7 @@ class LinksController < ApplicationController
   private
 
   def link_params
-    params.require(:link).permit(:address, :name, :title, :description, :thumbnail)
+    params.require(:links).permit(:address, :name, :title, :description, :thumbnail)
   end
 
 

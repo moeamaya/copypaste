@@ -1,7 +1,7 @@
 <div class="touch">
 
 <div class="pasteee">
-	<%= form_for :link, url:links_path do |f| %>
+	<%= form_for @links, :url => links_path do |f| %>
 	<%= f.text_field :address, :placeholder => 'PASTEEE a link...', :autocomplete => 'off' %>
 	<br />
 </div>
@@ -29,7 +29,7 @@
 
 
 <div class="links">
-<% @links.each do |link| %>
+<% @links_show.each do |link| %>
 	<div class="link" id="c_<%= link.id %>">
 		<!-- image link -->
 			<!-- text link -->
@@ -46,7 +46,7 @@
 
 
 <div class="comments">
-<% @links.each do |link| %>
+<% @links_show.each do |link| %>
 	<div class="comm-hide" id="cc_<%= link.id %>" style="display:none">
 
 		<div class="link-card">
