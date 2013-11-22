@@ -173,9 +173,12 @@ a{
 	margin-bottom: 10px;
 	.thumb {
 		display: block;
-		background: #eee;
-		width: 100px;
+		width: 130px;
 		height: 100px;
+		overflow: hidden;
+		img {
+			max-height: 100px;
+		}
 	}
 	h2 {
 		margin: 0;
