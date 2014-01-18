@@ -32,7 +32,7 @@ class CommentsController < ApplicationController
 
 
     respond_to do |format|
-      if @comment.update_attributes(params[:comment])
+      if @comment.update_attributes(comments_params)
         format.html { redirect_to('/', :notice => 'Link was successfully updated.') }
       else
         format.html { render :action => "edit" }
