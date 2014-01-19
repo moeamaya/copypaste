@@ -230,7 +230,9 @@ a{
 			text-decoration: underline;
 		}
 }
-
+.mobile-back {
+	display: none;
+}
 .new-comment {
 	clear: both;
 	margin-top: 20px;
@@ -272,8 +274,12 @@ a{
 		visibility: hidden;
 		width: 100%;
 		left: 100%;
-		padding: 20px 15px 15px;
+		padding: 20px 20px 30px;
 		-webkit-transition: all .6s ease;
+	}
+	.mobile-back {
+		display: block;
+		margin-bottom: 30px;
 	}
 	.open {
 		visibility: visible;

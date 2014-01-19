@@ -10,11 +10,10 @@ $(document).ready(function(){
   var current;
 
   $('.link').click( function() {
-    // hide any previous div
-    // if (current) {
-    //   $(current).hide();
-    // };
+
+    // hide all the children divs
     $('.comments').children().hide();
+    $('.mobile-back').show();
 
     // set background color
     $(this).siblings().css('background', '');
@@ -27,6 +26,7 @@ $(document).ready(function(){
     // set global variable
     current = comm;
 
+    // check if in mobile state
     if ($('.comments').hasClass("close")){
       $('.comments').removeClass('close').addClass('open');
     } else {
@@ -34,10 +34,19 @@ $(document).ready(function(){
     }
 
     //TODO
-     //adjust slide speed to number of comments
-     $( comm ).slideDown('fast');
+    //adjust slide speed to number of comments
+    $( comm ).slideDown('fast');
    });
 
+
+  $('.mobile-back').click( function(){
+    // check if in mobile state
+    if ($('.comments').hasClass("close")){
+      $('.comments').removeClass('close').addClass('open');
+    } else {
+      $('.comments').removeClass('open').addClass('close');
+    }
+  })
 
   $('#links_address').bind("focus", clear_search);
 
