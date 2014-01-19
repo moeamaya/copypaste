@@ -91,12 +91,12 @@ a{
 	box-sizing: border-box;
 	display: block;
 	position: absolute;
+	width: 30%;
 	top: 70px;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	overflow-y: scroll;
-	width: 30%;
 	padding-bottom: 40px;
 }
 
@@ -154,13 +154,14 @@ a{
 	display: block;
 	position: absolute;
 	top: 70px;
+	width: 70%;
 	bottom: 0;
 	left: 30%;
 	right: 0;
 	overflow-y: scroll;
-	width: 70%;
 	padding: 40px 60px 30px;
 	background: #e6e6e6;
+	z-index: 10;
 	.left {
 		display: block;
 		width: 20%;
@@ -180,7 +181,7 @@ a{
 	margin-bottom: 10px;
 	.thumb {
 		display: block;
-		width: 130px;
+		max-width: 90%;
 		height: 100px;
 		overflow: hidden;
 		img {
@@ -254,5 +255,37 @@ a{
 		width: 100%;
 	}
 }
+
+@media only screen and (max-width: $mobile-breakpoint) {
+	.links {
+		width: 100%;
+	}
+	.link-card {
+		.thumb {
+			height: 50px;
+			img {
+				max-height: 50px;
+			}
+		}
+	}
+	.comments {
+		visibility: hidden;
+		width: 100%;
+		left: 100%;
+		padding: 20px 15px 15px;
+		-webkit-transition: all .6s ease;
+	}
+	.open {
+		visibility: visible;
+		left: 0%;
+	}
+	.close {
+		visibility: hidden;
+		left: 100%;
+	}
+}
+
+
+
 
 

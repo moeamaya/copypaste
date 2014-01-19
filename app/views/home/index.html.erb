@@ -45,7 +45,7 @@
 </div><!-- CLOSE links -->
 
 
-<div class="comments">
+<div class="comments close">
 <% @links_show.each_with_index do |link, index| %>
 	<div class="comm-hide" id="cc_<%= link.id %>" style="<%= "display: none" unless index == 0 %>">
 
@@ -105,8 +105,8 @@
 		</div>
 	</div>
 	<% end %>
+	</div>
 </div> <!-- CLOSE comments -->
-
 
 
 </div>  <!-- CLOSE touch -->

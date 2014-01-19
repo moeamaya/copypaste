@@ -27,6 +27,12 @@ $(document).ready(function(){
     // set global variable
     current = comm;
 
+    if ($('.comments').hasClass("close")){
+      $('.comments').removeClass('close').addClass('open');
+    } else {
+      $('.comments').removeClass('open').addClass('close');
+    }
+
     //TODO
      //adjust slide speed to number of comments
      $( comm ).slideDown('fast');
